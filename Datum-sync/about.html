@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth bg-[#050505]">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Datum Sync</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #ffffff;
+            overflow-x: hidden;
+            margin: 0;
+        }
+
+        .premium-glass {
+            background: rgba(10, 10, 12, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .text-accent {
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Team Card Premium Hover Effect */
+        .team-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: #0f1115;
+            transition: transform 0.4s ease, border-color 0.4s ease;
+        }
+        
+        .team-img-wrapper {
+            overflow: hidden;
+            aspect-ratio: 4/5;
+        }
+
+        .team-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%) contrast(1.2);
+            transition: filter 0.5s ease, transform 0.5s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(56, 189, 248, 0.3);
+        }
+
+        .team-card:hover .team-img {
+            filter: grayscale(0%) contrast(1);
+            transform: scale(1.05);
+        }
+
+        .gsap-reveal {
+            visibility: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-[#38bdf8] selection:text-white">
+
+    <nav class="fixed w-full z-50 top-0 premium-glass" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="font-bold text-xl tracking-widest text-white flex items-center gap-2 hover:opacity-80 transition-opacity">
+                <div class="w-4 h-4 rounded-full bg-gradient-to-r from-blue-400 to-indigo-500"></div>
+                DATUM.SYNC
+            </a>
+            <div class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="features.html" class="text-gray-400 hover:text-white transition-colors">The Engine</a>
+                <a href="revit-integration.html" class="text-gray-400 hover:text-white transition-colors">Revit Integration</a>
+                <a href="enterprise.html" class="text-gray-400 hover:text-white transition-colors">Enterprise</a>
+            </div>
+            <a href="pricing.html" class="bg-white text-black px-6 py-2.5 rounded-full text-sm font-semibold hover:scale-105 transition-transform duration-300">
+                Get Access
+            </a>
+        </div>
+    </nav>
+
+    <section class="pt-40 pb-20 px-6 max-w-5xl mx-auto text-center relative">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+        
+        <h1 class="gsap-reveal text-4xl md:text-7xl font-extrabold tracking-tight mb-6 relative z-10 leading-[1.1]">
+            We build the connective tissue <br/>
+            <span class="text-accent">for the AEC industry.</span>
+        </h1>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-6 pb-24 relative z-10">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+            <div class="md:col-span-4 gsap-reveal">
+                <h2 class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-4">Our Origin</h2>
+                <div class="h-1 w-12 bg-[#38bdf8] rounded-full"></div>
+            </div>
+            <div class="md:col-span-8 space-y-8 text-lg md:text-xl text-gray-300 font-light leading-relaxed gsap-reveal">
+                <p>
+                    Datum Sync wasn't born in a Silicon Valley boardroom. It was built out of frustration in a structural engineering firm in 2024. We were BIM Managers tired of watching hours of meticulous Revit work vanish due to central model corruption and VPN latency.
+                </p>
+                <p>
+                    We realized the industry didn't need another clunky project management tool. It needed a fundamental upgrade to how Autodesk data moves across the internet. 
+                </p>
+                <p>
+                    So, we engineered it ourselves. Today, Datum Sync processes millions of parameter updates daily, ensuring that architects and engineers spend their time designing, not troubleshooting sync errors.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="border-y border-gray-800 bg-[#0a0d14] py-16 mb-32">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-gray-800/50">
+            <div class="gsap-reveal">
+                <div class="text-4xl md:text-5xl font-extrabold text-white mb-2">99.9%</div>
+                <div class="text-sm text-gray-500 font-medium uppercase tracking-wider">Uptime SLA</div>
+            </div>
+            <div class="gsap-reveal">
+                <div class="text-4xl md:text-5xl font-extrabold text-white mb-2">12M+</div>
+                <div class="text-sm text-gray-500 font-medium uppercase tracking-wider">Parameters Synced</div>
+            </div>
+            <div class="gsap-reveal">
+                <div class="text-4xl md:text-5xl font-extrabold text-white mb-2">&lt;50ms</div>
+                <div class="text-sm text-gray-500 font-medium uppercase tracking-wider">Avg Latency</div>
+            </div>
+            <div class="gsap-reveal">
+                <div class="text-4xl md:text-5xl font-extrabold text-white mb-2">24/7</div>
+                <div class="text-sm text-gray-500 font-medium uppercase tracking-wider">Engineering Support</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-6 pb-32">
+        <div class="mb-16 md:flex justify-between items-end gsap-reveal">
+            <div>
+                <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-4">Meet the Engineers</h2>
+                <p class="text-gray-400 max-w-xl">Built by architects, structural engineers, and distributed systems experts.</p>
+            </div>
+            <a href="#" class="hidden md:inline-flex text-[#38bdf8] hover:text-white font-medium items-center transition-colors">
+                View Open Roles <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            <div class="gsap-reveal team-card group">
+                <div class="team-img-wrapper bg-gray-800">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="CEO" class="team-img">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-lg font-bold text-white mb-1">Marcus Chen</h3>
+                    <p class="text-sm text-[#38bdf8] font-medium mb-3">CEO & Co-Founder</p>
+                    <p class="text-xs text-gray-400">Former Lead BIM Manager at Gensler. Obsessed with data integrity.</p>
+                </div>
+            </div>
+
+            <div class="gsap-reveal team-card group">
+                <div class="team-img-wrapper bg-gray-800">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="CTO" class="team-img">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-lg font-bold text-white mb-1">Sarah Jenkins</h3>
+                    <p class="text-sm text-[#38bdf8] font-medium mb-3">CTO & Co-Founder</p>
+                    <p class="text-xs text-gray-400">Ex-Autodesk core developer. Built the initial Datum Sync .NET hook.</p>
+                </div>
+            </div>
+
+            <div class="gsap-reveal team-card group">
+                <div class="team-img-wrapper bg-gray-800">
+                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Lead Engineer" class="team-img">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-lg font-bold text-white mb-1">David Alaba</h3>
+                    <p class="text-sm text-gray-400 font-medium mb-3">Head of Infrastructure</p>
+                    <p class="text-xs text-gray-400">Scales our AWS backend to handle massive Revit model payloads.</p>
+                </div>
+            </div>
+
+            <div class="gsap-reveal team-card group flex flex-col justify-center items-center text-center p-8 bg-gradient-to-br from-gray-900 to-black border-none h-full min-h-[300px]">
+                <div class="w-16 h-16 rounded-full bg-blue-500/10 border border-blue-500/30 flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-[#38bdf8]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                </div>
+                <h3 class="text-lg font-bold text-white mb-2">Join the Team</h3>
+                <p class="text-sm text-gray-400 mb-6">We are hiring .NET developers and Revit API experts.</p>
+                <a href="#" class="text-xs font-bold uppercase tracking-widest text-[#38bdf8] hover:text-white transition-colors">See Openings</a>
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            gsap.registerPlugin(ScrollTrigger);
+
+            gsap.utils.toArray('.gsap-reveal').forEach((elem, i) => {
+                gsap.to(elem, {
+                    scrollTrigger: {
+                        trigger: elem,
+                        start: "top 85%",
+                        toggleActions: "play none none none"
+                    },
+                    autoAlpha: 1,
+                    y: 0,
+                    duration: 0.8,
+                    ease: "power3.out",
+                    delay: i * 0.1 
+                });
+            });
+        });
+    </script>
+</body>
+</html>
