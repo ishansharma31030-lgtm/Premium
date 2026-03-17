@@ -1,0 +1,63 @@
+/* ==========================================================================
+   DATUM SYNC | GLOBAL STYLES
+   ========================================================================== */
+
+/* 1. Typography Imports */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&family=JetBrains+Mono:wght@400;700&display=swap');
+
+/* 2. Base Setup */
+body {
+    font-family: 'Inter', sans-serif;
+    color: #ffffff;
+    background-color: #050505; /* Deep premium black */
+    overflow-x: hidden;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* 3. Typography Utility Classes */
+.code-font {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.text-accent {
+    background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* Optional: Adds a subtle glow to the text */
+    text-shadow: 0 0 30px rgba(56, 189, 248, 0.3);
+}
+
+/* 4. Core UI Components */
+.premium-glass {
+    background: rgba(10, 10, 12, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* 5. Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #050505; 
+}
+::-webkit-scrollbar-thumb {
+    background: #334155; 
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #475569; 
+}
+
+/* 6. GSAP Animation Base State
+   This hides elements initially so they don't flash on the screen 
+   before the JavaScript animation takes over. */
+.gsap-reveal, .gsap-fade-up {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(30px);
+}
