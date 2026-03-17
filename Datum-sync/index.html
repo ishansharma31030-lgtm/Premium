@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth bg-[#050505]">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datum Sync | Next-Gen Autodesk Add-ins</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #ffffff;
+            overflow-x: hidden;
+            margin: 0;
+        }
+
+        #bim-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.8;
+            pointer-events: none;
+        }
+
+        .premium-glass {
+            background: rgba(10, 10, 12, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .text-accent {
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(56, 189, 248, 0.3);
+        }
+
+        /* Notice we DO NOT use opacity: 0 here to prevent the black screen if JS fails. 
+           We let GSAP handle the hiding and showing dynamically. */
+        .reveal-up {
+            visibility: hidden; 
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-[#38bdf8] selection:text-white">
+
+    <nav class="fixed w-full z-50 top-0 premium-glass" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="font-bold text-xl tracking-widest text-white flex items-center gap-2">
+                <div class="w-4 h-4 rounded-full bg-gradient-to-r from-blue-400 to-indigo-500 animate-pulse"></div>
+                DATUM.SYNC
+            </div>
+            <div class="hidden md:flex space-x-8 text-sm text-gray-400 font-medium">
+                <a href="features.html" class="hover:text-white transition-colors">The Engine</a>
+                <a href="revit-integration.html" class="hover:text-white transition-colors">Revit Integration</a>
+                <a href="enterprise.html" class="hover:text-white transition-colors">Enterprise</a>
+            </div>
+            <a href="pricing.html" class="bg-white text-black px-6 py-2.5 rounded-full text-sm font-semibold hover:scale-105 transition-transform duration-300">
+                Get Access
+            </a>
+        </div>
+    </nav>
+
+    <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-gradient-to-b from-[#050505] to-[#0a0f1c]">
+        <canvas id="bim-canvas"></canvas>
+        
+        <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
+            <div class="reveal-up inline-block mb-6 px-4 py-1.5 rounded-full border border-gray-800 bg-gray-900/80 backdrop-blur-md text-xs font-semibold tracking-widest text-gray-300 uppercase">
+                Now syncing Revit 2026 Models
+            </div>
+            
+            <h1 class="reveal-up text-5xl md:text-8xl font-extrabold tracking-tighter mb-8 leading-[1.1]">
+                Zero Latency. <br/>
+                <span class="text-accent">Absolute Precision.</span>
+            </h1>
+            
+            <p class="reveal-up mt-6 max-w-2xl mx-auto text-lg md:text-2xl text-gray-400 font-light leading-relaxed mb-12">
+                The enterprise-grade synchronization protocol for Autodesk Revit. Connect central models globally without data fragmentation.
+            </p>
+            
+            <div class="reveal-up flex flex-col sm:flex-row justify-center gap-6">
+                <a href="pricing.html" class="bg-white text-black px-8 py-4 rounded-full font-semibold text-lg hover:shadow-[0_0_40px_rgba(255,255,255,0.3)] transition-all duration-300">
+                    Deploy Datum Sync
+                </a>
+                <a href="documentation.html" class="premium-glass border border-gray-700 px-8 py-4 rounded-full font-semibold text-lg text-white hover:bg-white/10 transition-all duration-300">
+                    Read the Documentation
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // 1. GSAP Text Reveals
+            gsap.set(".reveal-up", { autoAlpha: 0, y: 50 }); // Prevents flash of unstyled content
+            gsap.to(".reveal-up", {
+                autoAlpha: 1,
+                y: 0,
+                duration: 1.2,
+                stagger: 0.2,
+                ease: "power4.out",
+                delay: 0.3
+            });
+
+            // 2. Data Node Background Animation
+            const canvas = document.getElementById("bim-canvas");
+            const ctx = canvas.getContext("2d");
+            let width, height, particles;
+
+            function initCanvas() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+                particles = [];
+                const particleCount = window.innerWidth < 768 ? 50 : 120;
+                
+                for (let i = 0; i < particleCount; i++) {
+                    particles.push({
+                        x: Math.random() * width,
+                        y: Math.random() * height,
+                        vx: (Math.random() - 0.5) * 0.8,
+                        vy: (Math.random() - 0.5) * 0.8,
+                        size: Math.random() * 2 + 1
+                    });
+                }
+            }
+
+            function animateCanvas() {
+                requestAnimationFrame(animateCanvas);
+                ctx.clearRect(0, 0, width, height);
+
+                particles.forEach((p, index) => {
+                    p.x += p.vx;
+                    p.y += p.vy;
+
+                    if (p.x < 0 || p.x > width) p.vx *= -1;
+                    if (p.y < 0 || p.y > height) p.vy *= -1;
+
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                    ctx.fillStyle = "rgba(129, 140, 248, 0.4)";
+                    ctx.fill();
+
+                    for (let j = index + 1; j < particles.length; j++) {
+                        const p2 = particles[j];
+                        const dx = p.x - p2.x;
+                        const dy = p.y - p2.y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+
+                        if (distance < 180) {
+                            ctx.beginPath();
+                            ctx.moveTo(p.x, p.y);
+                            ctx.lineTo(p2.x, p2.y);
+                            ctx.strokeStyle = `rgba(56, 189, 248, ${0.2 - distance / 900})`;
+                            ctx.lineWidth = 1;
+                            ctx.stroke();
+                        }
+                    }
+                });
+            }
+
+            window.addEventListener('resize', initCanvas);
+            initCanvas();
+            animateCanvas();
+        });
+    </script>
+</body>
+</html>
