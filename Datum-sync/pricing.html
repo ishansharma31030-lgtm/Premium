@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth bg-[#050505]">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing | Datum Sync</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #ffffff;
+            overflow-x: hidden;
+            margin: 0;
+        }
+
+        .premium-glass {
+            background: rgba(10, 10, 12, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .text-accent {
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Standard Pricing Card */
+        .pricing-card {
+            background: linear-gradient(145deg, rgba(30, 30, 35, 0.3) 0%, rgba(15, 15, 18, 0.6) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s ease;
+        }
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* "Pro" Glowing Card */
+        .pricing-card-pro {
+            background: linear-gradient(145deg, rgba(20, 25, 40, 0.6) 0%, rgba(10, 12, 20, 0.9) 100%);
+            border: 1px solid rgba(56, 189, 248, 0.4);
+            box-shadow: 0 0 40px rgba(56, 189, 248, 0.15), inset 0 0 20px rgba(56, 189, 248, 0.05);
+            backdrop-filter: blur(10px);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+        }
+        .pricing-card-pro:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 0 60px rgba(56, 189, 248, 0.25), inset 0 0 20px rgba(56, 189, 248, 0.1);
+        }
+
+        /* Toggle Switch Custom CSS */
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #38bdf8;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #38bdf8;
+        }
+
+        .gsap-reveal {
+            visibility: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-[#38bdf8] selection:text-white pb-24">
+
+    <nav class="fixed w-full z-50 top-0 premium-glass" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="font-bold text-xl tracking-widest text-white flex items-center gap-2 hover:opacity-80 transition-opacity">
+                <div class="w-4 h-4 rounded-full bg-gradient-to-r from-blue-400 to-indigo-500"></div>
+                DATUM.SYNC
+            </a>
+            <div class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="features.html" class="text-gray-400 hover:text-white transition-colors">The Engine</a>
+                <a href="revit-integration.html" class="text-gray-400 hover:text-white transition-colors">Revit Integration</a>
+                <a href="enterprise.html" class="text-gray-400 hover:text-white transition-colors">Enterprise</a>
+            </div>
+            <a href="pricing.html" class="bg-white text-black px-6 py-2.5 rounded-full text-sm font-semibold hover:scale-105 transition-transform duration-300 shadow-[0_0_15px_rgba(255,255,255,0.2)]">
+                Pricing
+            </a>
+        </div>
+    </nav>
+
+    <section class="pt-40 pb-12 px-6 max-w-4xl mx-auto text-center relative">
+        <h1 class="gsap-reveal text-4xl md:text-6xl font-extrabold tracking-tight mb-6">
+            Predictable pricing for <br/><span class="text-accent">predictable workflows.</span>
+        </h1>
+        <p class="gsap-reveal text-lg text-gray-400 leading-relaxed mb-10">
+            Whether you are a solo BIM manager or a global architecture firm, we have a tier built for your project scale.
+        </p>
+        
+        <div class="gsap-reveal flex items-center justify-center gap-4 text-sm font-medium">
+            <span class="text-gray-400">Billed Monthly</span>
+            <div class="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in">
+                <input type="checkbox" name="toggle" id="toggle" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 border-gray-800 appearance-none cursor-pointer transition-all duration-300 z-10 top-0 left-0 checked:translate-x-6 checked:border-[#38bdf8]"/>
+                <label for="toggle" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-800 cursor-pointer transition-colors duration-300"></label>
+            </div>
+            <span class="text-white">Billed Annually <span class="text-[#38bdf8] ml-1 text-xs px-2 py-0.5 bg-blue-500/10 rounded-full border border-blue-500/20">Save 20%</span></span>
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-6 relative z-10">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+            
+            <div class="gsap-reveal pricing-card rounded-3xl p-8 flex flex-col h-full">
+                <h3 class="text-xl font-bold text-gray-300 mb-2">Freelance</h3>
+                <p class="text-sm text-gray-500 mb-6">Perfect for solo architects and students.</p>
+                <div class="mb-6">
+                    <span class="text-4xl font-extrabold">$19</span><span class="text-gray-500">/mo</span>
+                </div>
+                <a href="#" class="w-full block text-center border border-gray-600 hover:bg-white hover:text-black transition-colors py-3 rounded-lg font-semibold text-sm mb-8">Start Free Trial</a>
+                
+                <div class="flex-grow">
+                    <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4">Includes:</p>
+                    <ul class="space-y-3 text-sm text-gray-300">
+                        <li class="flex items-center gap-3"><svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> 1 Active Project</li>
+                        <li class="flex items-center gap-3"><svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Standard Sync Engine</li>
+                        <li class="flex items-center gap-3"><svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Community Support</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="gsap-reveal pricing-card-pro rounded-3xl p-8 flex flex-col h-[105%] relative z-20">
+                <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-[#38bdf8] to-[#818cf8] text-white text-xs font-bold px-4 py-1 rounded-full shadow-lg">
+                    MOST POPULAR
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2">Studio Pro</h3>
+                <p class="text-sm text-blue-200/60 mb-6">For professional teams syncing daily.</p>
+                <div class="mb-6">
+                    <span class="text-5xl font-extrabold">$79</span><span class="text-gray-400">/mo</span><span class="text-xs text-gray-500 block mt-1">per user</span>
+                </div>
+                <a href="#" class="w-full block text-center bg-white text-black hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] transition-all py-3 rounded-lg font-bold text-sm mb-8">Deploy Studio Pro</a>
+                
+                <div class="flex-grow">
+                    <p class="text-xs font-bold text-blue-300 uppercase tracking-wider mb-4">Everything in Freelance, plus:</p>
+                    <ul class="space-y-3 text-sm text-gray-200">
+                        <li class="flex items-center gap-3"><svg class="w-4 h-4 text-[#38bdf8]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Unlimited Active Projects</li>
+                        <li class="flex items-center gap-3"><svg class="w-4 h-4 text-[#38bdf8]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Real-Time Delta Syncing</li>
+                        <li class="flex items-center gap-3"><svg class="w-4 h-4 text-[#38bdf8]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Advanced Conflict Resolution</li>
+                        <li class="flex items-center gap-3"><svg class="w-4 h-4 text-[#38bdf8]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Priority Email Support</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="gsap-reveal pricing-card rounded-3xl p-8 flex flex-col h-full">
+                <h3 class="text-xl font-bold text-gray-300 mb-2">Enterprise</h3>
+                <p class="text-sm text-gray-500 mb-6">Custom deployment for large AEC firms.</p>
+                <div class="mb-6 h-[48px] flex items-end">
+                    <span class="text-3xl font-extrabold">Custom</span>
+                </div>
+                <a href="enterprise.html" class="w-full block text-center border border-gray-600 hover:bg-white hover:text-black transition-colors py-3 rounded-lg font-semibold text-sm mb-8">Contact Sales</a>
+                
+                <div class="flex-grow">
+                    <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4">Everything in Pro, plus:</p>
+                    <ul class="space-y-3 text-sm text-gray-300">
+                        <li class="flex items-center gap-3"><svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Single Sign-On (SSO)</li>
+                        <li class="flex items-center gap-3"><svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> On-Premise Server Deployment</li>
+                        <li class="flex items-center gap-3"><svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Dedicated Success Manager</li>
+                        <li class="flex items-center gap-3"><svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Custom API Rate Limits</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Check if GSAP loaded properly
+            if (typeof gsap !== "undefined") {
+                gsap.to(".gsap-reveal", {
+                    autoAlpha: 1,
+                    y: 0,
+                    duration: 0.8,
+                    stagger: 0.15,
+                    ease: "power3.out",
+                    delay: 0.1
+                });
+            } else {
+                // Fallback if CDN fails
+                document.querySelectorAll('.gsap-reveal').forEach(el => {
+                    el.style.visibility = 'visible';
+                    el.style.opacity = '1';
+                    el.style.transform = 'none';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
