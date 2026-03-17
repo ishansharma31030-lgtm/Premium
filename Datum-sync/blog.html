@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth bg-[#050505]">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Updates & Engineering | Datum Sync</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #ffffff;
+            overflow-x: hidden;
+            margin: 0;
+        }
+
+        .premium-glass {
+            background: rgba(10, 10, 12, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .text-accent {
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Blog Card Styling */
+        .blog-card {
+            background: rgba(15, 17, 21, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 1rem;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .blog-card:hover {
+            border-color: rgba(56, 189, 248, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        .blog-img-container {
+            overflow: hidden;
+            aspect-ratio: 16/9;
+        }
+
+        .blog-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .blog-card:hover .blog-img {
+            transform: scale(1.05);
+        }
+
+        /* Category Filter Pills */
+        .filter-pill {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+            transition: all 0.3s ease;
+        }
+
+        .filter-pill:hover, .filter-pill.active {
+            background: rgba(56, 189, 248, 0.1);
+            border-color: #38bdf8;
+            color: #ffffff;
+        }
+
+        .gsap-reveal {
+            visibility: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-[#38bdf8] selection:text-white pb-24">
+
+    <nav class="fixed w-full z-50 top-0 premium-glass" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="font-bold text-xl tracking-widest text-white flex items-center gap-2 hover:opacity-80 transition-opacity">
+                <div class="w-4 h-4 rounded-full bg-gradient-to-r from-blue-400 to-indigo-500"></div>
+                DATUM.SYNC
+            </a>
+            <div class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="features.html" class="text-gray-400 hover:text-white transition-colors">The Engine</a>
+                <a href="pricing.html" class="text-gray-400 hover:text-white transition-colors">Pricing</a>
+                <a href="documentation.html" class="text-gray-400 hover:text-white transition-colors">Docs</a>
+            </div>
+            <a href="download.html" class="bg-white text-black px-6 py-2.5 rounded-full text-sm font-semibold hover:scale-105 transition-transform duration-300">
+                Download
+            </a>
+        </div>
+    </nav>
+
+    <section class="pt-40 pb-12 px-6 max-w-7xl mx-auto text-center">
+        <h1 class="gsap-reveal text-4xl md:text-6xl font-extrabold tracking-tight mb-6">
+            Engineering & <span class="text-accent">Updates</span>
+        </h1>
+        <p class="gsap-reveal text-lg text-gray-400 max-w-2xl mx-auto mb-10">
+            Release notes, deep dives into the Revit API, and stories from the frontlines of AEC software development.
+        </p>
+
+        <div class="gsap-reveal flex flex-wrap justify-center gap-3 mb-8">
+            <button class="filter-pill active px-4 py-1.5 rounded-full text-sm font-medium">View All</button>
+            <button class="filter-pill px-4 py-1.5 rounded-full text-sm font-medium">Release Notes</button>
+            <button class="filter-pill px-4 py-1.5 rounded-full text-sm font-medium">Revit API</button>
+            <button class="filter-pill px-4 py-1.5 rounded-full text-sm font-medium">Company News</button>
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-6 pb-16 relative z-10">
+        <a href="#" class="gsap-reveal group block">
+            <div class="blog-card grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-8 items-center p-2 lg:p-6 h-full">
+                <div class="blog-img-container rounded-lg w-full h-full min-h-[300px] lg:min-h-[400px]">
+                    <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Code on screen" class="blog-img">
+                </div>
+                <div class="p-6 lg:p-10 flex flex-col justify-center">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="bg-blue-500/20 text-[#38bdf8] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Engineering</span>
+                        <span class="text-xs text-gray-500 font-mono">March 15, 2026</span>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 group-hover:text-[#38bdf8] transition-colors leading-tight">
+                        How We Achieved Zero-Latency Parameter Syncing in Revit 2026
+                    </h2>
+                    <p class="text-gray-400 leading-relaxed mb-8 text-lg">
+                        A deep technical dive into bypassing the standard DocumentChanged event overhead using our proprietary C# memory mapping architecture.
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-gray-700 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Author" class="w-full h-full object-cover grayscale">
+                        </div>
+                        <div>
+                            <p class="text-sm font-bold text-white">Sarah Jenkins</p>
+                            <p class="text-xs text-gray-500">CTO</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-6 pb-32">
+        <h3 class="gsap-reveal text-2xl font-bold text-white mb-8 border-b border-gray-800 pb-4">Recent Articles</h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <div class="gsap-reveal">
+                <a href="#" class="blog-card flex flex-col h-full group block">
+                    <div class="blog-img-container">
+                        <img src="https://images.unsplash.com/photo-1665686304129-a4e2d14948ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Architecture" class="blog-img">
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-[#38bdf8] text-xs font-bold uppercase tracking-wider">Release Notes</span>
+                            <span class="text-xs text-gray-500 font-mono">Feb 28, 2026</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-3 group-hover:text-[#38bdf8] transition-colors">Datum Sync v2.1 is Live</h4>
+                        <p class="text-sm text-gray-400 mb-6 flex-grow">Introducing enterprise SAML SSO, advanced conflict resolution UI, and 40% faster delta uploads.</p>
+                        <span class="text-sm font-bold text-white flex items-center gap-2 group-hover:gap-3 transition-all">Read Article <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="gsap-reveal">
+                <a href="#" class="blog-card flex flex-col h-full group block">
+                    <div class="blog-img-container">
+                        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Server" class="blog-img">
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-[#818cf8] text-xs font-bold uppercase tracking-wider">Company</span>
+                            <span class="text-xs text-gray-500 font-mono">Jan 15, 2026</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-3 group-hover:text-[#818cf8] transition-colors">Announcing our SOC2 Type II Certification</h4>
+                        <p class="text-sm text-gray-400 mb-6 flex-grow">Why we invested heavily in compliance to protect your proprietary BIM and architectural data.</p>
+                        <span class="text-sm font-bold text-white flex items-center gap-2 group-hover:gap-3 transition-all">Read Article <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="gsap-reveal">
+                <a href="#" class="blog-card flex flex-col h-full group block">
+                    <div class="blog-img-container">
+                        <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Code" class="blog-img">
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-[#38bdf8] text-xs font-bold uppercase tracking-wider">Engineering</span>
+                            <span class="text-xs text-gray-500 font-mono">Dec 02, 2025</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-3 group-hover:text-[#38bdf8] transition-colors">Handling Massive Parameter Payloads</h4>
+                        <p class="text-sm text-gray-400 mb-6 flex-grow">How we chunk and queue API requests when a user updates 10,000+ families at once.</p>
+                        <span class="text-sm font-bold text-white flex items-center gap-2 group-hover:gap-3 transition-all">Read Article <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></span>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="max-w-5xl mx-auto px-6 pb-20">
+        <div class="gsap-reveal rounded-3xl bg-[#0a0d14] border border-gray-800 p-10 md:p-16 text-center relative overflow-hidden">
+            <div class="absolute top-0 right-1/4 w-64 h-64 bg-blue-500/10 rounded-full blur-[80px] pointer-events-none"></div>
+            <h2 class="text-2xl md:text-3xl font-bold mb-4 relative z-10">Don't miss a sync.</h2>
+            <p class="text-gray-400 mb-8 max-w-xl mx-auto relative z-10">Subscribe to our developer newsletter for the latest Revit API insights, feature releases, and company updates. No spam, ever.</p>
+            
+            <form class="relative z-10 max-w-md mx-auto flex gap-2" onsubmit="event.preventDefault();">
+                <input type="email" placeholder="engineer@firm.com" class="flex-grow bg-[#161b22] border border-gray-700 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-[#38bdf8] transition-colors">
+                <button type="submit" class="bg-white text-black font-bold px-6 py-3 rounded-lg hover:shadow-[0_0_15px_rgba(255,255,255,0.3)] transition-all">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            gsap.registerPlugin(ScrollTrigger);
+
+            gsap.utils.toArray('.gsap-reveal').forEach((elem, i) => {
+                gsap.to(elem, {
+                    scrollTrigger: {
+                        trigger: elem,
+                        start: "top 85%",
+                        toggleActions: "play none none none"
+                    },
+                    autoAlpha: 1,
+                    y: 0,
+                    duration: 0.6,
+                    ease: "power2.out",
+                    delay: i * 0.1
+                });
+            });
+        });
+    </script>
+</body>
+</html>
