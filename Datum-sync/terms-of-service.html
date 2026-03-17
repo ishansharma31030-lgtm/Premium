@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth bg-[#050505]">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service | Datum Sync</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="css/globals.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+    <style>
+        /* Fallback for globals.css */
+        .premium-glass {
+            background: rgba(10, 10, 12, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .gsap-reveal {
+            visibility: hidden;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        /* Legal page typography */
+        .legal-content h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-top: 3.5rem;
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .legal-content h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #e2e8f0;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+        }
+        .legal-content p, .legal-content li {
+            color: #94a3b8;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        .legal-content ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .legal-content strong {
+            color: #e2e8f0;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-[#38bdf8] selection:text-white flex flex-col min-h-screen">
+
+    <nav class="fixed w-full z-50 top-0 premium-glass" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="font-bold text-xl tracking-widest text-white flex items-center gap-2 hover:opacity-80 transition-opacity">
+                <div class="w-4 h-4 rounded-full bg-gradient-to-r from-blue-400 to-indigo-500"></div>
+                DATUM.SYNC
+            </a>
+            <div class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="features.html" class="text-gray-400 hover:text-white transition-colors">The Engine</a>
+                <a href="pricing.html" class="text-gray-400 hover:text-white transition-colors">Pricing</a>
+                <a href="documentation.html" class="text-gray-400 hover:text-white transition-colors">Docs</a>
+            </div>
+            <a href="contact.html" class="bg-white text-black px-6 py-2.5 rounded-full text-sm font-semibold hover:scale-105 transition-transform duration-300">
+                Contact Sales
+            </a>
+        </div>
+    </nav>
+
+    <section class="pt-40 pb-12 px-6 max-w-7xl mx-auto border-b border-gray-800/50">
+        <h1 class="gsap-reveal text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-white">
+            Terms of Service
+        </h1>
+        <p class="gsap-reveal text-sm text-gray-400 font-mono">
+            Effective Date: March 17, 2026
+        </p>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row gap-12 relative">
+        
+        <aside class="hidden md:block w-64 flex-shrink-0">
+            <div class="sticky top-32">
+                <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4">Contents</h4>
+                <ul class="space-y-3 text-sm border-l border-gray-800 pl-4">
+                    <li><a href="#acceptance" class="text-[#38bdf8] block hover:-ml-0.5 hover:border-l-2 hover:border-[#38bdf8] hover:pl-0.5 transition-all">1. Acceptance of Terms</a></li>
+                    <li><a href="#license" class="text-gray-400 hover:text-white block hover:-ml-0.5 hover:border-l-2 hover:border-gray-400 hover:pl-0.5 transition-all">2. Software License</a></li>
+                    <li><a href="#api-usage" class="text-gray-400 hover:text-white block hover:-ml-0.5 hover:border-l-2 hover:border-gray-400 hover:pl-0.5 transition-all">3. API & Usage Limits</a></li>
+                    <li><a href="#liability" class="text-gray-400 hover:text-white block hover:-ml-0.5 hover:border-l-2 hover:border-gray-400 hover:pl-0.5 transition-all">4. Limitation of Liability</a></li>
+                    <li><a href="#subscriptions" class="text-gray-400 hover:text-white block hover:-ml-0.5 hover:border-l-2 hover:border-gray-400 hover:pl-0.5 transition-all">5. Subscriptions & Billing</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="flex-grow max-w-3xl legal-content">
+            
+            <div class="gsap-reveal" id="acceptance">
+                <h2>1. Acceptance of Terms</h2>
+                <p>
+                    By downloading, installing, or using the Datum Sync Autodesk Revit Add-in, the Datum Sync Web Dashboard, or our API (collectively, the "Services"), you agree to be bound by these Terms of Service. If you are entering into this agreement on behalf of a company, architectural firm, or other legal entity, you represent that you have the authority to bind such entity to these terms.
+                </p>
+            </div>
+
+            <div class="gsap-reveal" id="license">
+                <h2>2. Software License</h2>
+                <p>
+                    Subject to your compliance with these Terms and payment of applicable subscription fees, Datum Sync grants you a limited, non-exclusive, non-transferable, and revocable license to install and use the Services for your internal business or personal use.
+                </p>
+                <h3>Restrictions</h3>
+                <p>You may not:</p>
+                <ul>
+                    <li>Reverse engineer, decompile, or disassemble the Datum Sync .NET assemblies.</li>
+                    <li>Attempt to bypass our licensing verification protocols.</li>
+                    <li>Resell, sublicense, or distribute the Services as a standalone product.</li>
+                </ul>
+            </div>
+
+            <div class="gsap-reveal" id="api-usage">
+                <h2>3. API & Usage Limits</h2>
+                <p>
+                    Our sync engine is designed to handle large parameter payloads. However, to ensure network stability for all users, Datum Sync imposes rate limits on the Cloud API.
+                </p>
+                <p>
+                    <strong>Freelance & Pro Tiers:</strong> Subject to standard rate limiting (maximum 5,000 parameter delta pushes per minute). Exceeding this limit will result in temporary request throttling. <br>
+                    <strong>Enterprise Tier:</strong> Custom rate limits as defined in your specific Service Level Agreement (SLA).
+                </p>
+            </div>
+
+            <div class="gsap-reveal" id="liability">
+                <h2>4. Limitation of Liability</h2>
+                <div class="bg-red-500/10 border border-red-500/30 rounded-lg p-5 my-6">
+                    <p class="text-red-400 font-medium m-0 flex items-start gap-3">
+                        <svg class="w-6 h-6 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                        <span><strong>Data Integrity & Autodesk Models:</strong> While Datum Sync is rigorously tested against the official Autodesk Revit API, we are not liable for central model corruption, data loss, or project delays. It is your strict responsibility to maintain regular, independent backups of all Revit (`.rvt`) files.</span>
+                    </p>
+                </div>
+                <p>
+                    In no event shall Datum Sync Inc. be liable for any indirect, incidental, special, consequential, or punitive damages, including loss of profits, data, or goodwill, arising out of your use of the Services.
+                </p>
+            </div>
+
+            <div class="gsap-reveal" id="subscriptions">
+                <h2>5. Subscriptions & Billing</h2>
+                <p>
+                    Datum Sync is billed on a subscription basis (monthly or annually). You will be billed in advance on a recurring schedule. If auto-renewal is enabled, your payment method will be charged automatically at the end of each billing cycle.
+                </p>
+                <p>
+                    <strong>Refunds:</strong> We offer a 14-day money-back guarantee for all new subscriptions. Beyond 14 days, fees are non-refundable except as required by law.
+                </p>
+            </div>
+
+        </main>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            if (typeof gsap !== "undefined") {
+                gsap.to(".gsap-reveal", {
+                    autoAlpha: 1,
+                    y: 0,
+                    duration: 0.6,
+                    stagger: 0.1,
+                    ease: "power2.out",
+                    delay: 0.1
+                });
+            } else {
+                document.querySelectorAll('.gsap-reveal').forEach(el => {
+                    el.style.visibility = 'visible';
+                    el.style.opacity = '1';
+                    el.style.transform = 'none';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
