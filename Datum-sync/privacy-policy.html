@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth bg-[#050505]">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Datum Sync</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="css/globals.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+    <style>
+        /* Fallback just in case globals.css isn't linked correctly yet */
+        .premium-glass {
+            background: rgba(10, 10, 12, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .gsap-reveal {
+            visibility: hidden;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        /* Legal page specific styling */
+        .legal-content h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .legal-content p, .legal-content li {
+            color: #94a3b8;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        .legal-content ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .legal-content strong {
+            color: #e2e8f0;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-[#38bdf8] selection:text-white flex flex-col min-h-screen">
+
+    <nav class="fixed w-full z-50 top-0 premium-glass" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="font-bold text-xl tracking-widest text-white flex items-center gap-2 hover:opacity-80 transition-opacity">
+                <div class="w-4 h-4 rounded-full bg-gradient-to-r from-blue-400 to-indigo-500"></div>
+                DATUM.SYNC
+            </a>
+            <div class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="features.html" class="text-gray-400 hover:text-white transition-colors">The Engine</a>
+                <a href="pricing.html" class="text-gray-400 hover:text-white transition-colors">Pricing</a>
+                <a href="documentation.html" class="text-gray-400 hover:text-white transition-colors">Docs</a>
+            </div>
+            <a href="contact.html" class="bg-white text-black px-6 py-2.5 rounded-full text-sm font-semibold hover:scale-105 transition-transform duration-300">
+                Contact Sales
+            </a>
+        </div>
+    </nav>
+
+    <section class="pt-40 pb-12 px-6 max-w-7xl mx-auto border-b border-gray-800/50">
+        <h1 class="gsap-reveal text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-white">
+            Privacy Policy
+        </h1>
+        <p class="gsap-reveal text-sm text-gray-400 font-mono">
+            Last Updated: March 17, 2026
+        </p>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row gap-12 relative">
+        
+        <aside class="hidden md:block w-64 flex-shrink-0">
+            <div class="sticky top-32">
+                <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-4">Contents</h4>
+                <ul class="space-y-3 text-sm border-l border-gray-800 pl-4">
+                    <li><a href="#data-collection" class="text-[#38bdf8] block hover:-ml-0.5 hover:border-l-2 hover:border-[#38bdf8] hover:pl-0.5 transition-all">1. Data We Collect</a></li>
+                    <li><a href="#bim-data" class="text-gray-400 hover:text-white block hover:-ml-0.5 hover:border-l-2 hover:border-gray-400 hover:pl-0.5 transition-all">2. Proprietary BIM Data</a></li>
+                    <li><a href="#data-usage" class="text-gray-400 hover:text-white block hover:-ml-0.5 hover:border-l-2 hover:border-gray-400 hover:pl-0.5 transition-all">3. How We Use Data</a></li>
+                    <li><a href="#security" class="text-gray-400 hover:text-white block hover:-ml-0.5 hover:border-l-2 hover:border-gray-400 hover:pl-0.5 transition-all">4. Security Standards</a></li>
+                    <li><a href="#contact" class="text-gray-400 hover:text-white block hover:-ml-0.5 hover:border-l-2 hover:border-gray-400 hover:pl-0.5 transition-all">5. Contact Information</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="flex-grow max-w-3xl legal-content">
+            
+            <div class="gsap-reveal">
+                <p>
+                    At Datum Sync Inc. ("Datum Sync", "we", "us", or "our"), we understand that architectural and engineering models are highly confidential intellectual property. This Privacy Policy outlines how we collect, use, and protect your data when you use our website, Autodesk Add-ins, and enterprise synchronization services.
+                </p>
+            </div>
+
+            <div class="gsap-reveal" id="data-collection">
+                <h2>1. Information We Collect</h2>
+                <p>We collect information to provide and improve our services. This includes:</p>
+                <ul>
+                    <li><strong>Account Information:</strong> Name, email address, company name, and billing details provided during registration.</li>
+                    <li><strong>Telemetry Data:</strong> Application performance metrics, error logs, and synchronization latency statistics to help us debug issues.</li>
+                    <li><strong>Device Information:</strong> Hardware specifications, OS version, and Revit version strictly for compatibility and troubleshooting.</li>
+                </ul>
+            </div>
+
+            <div class="gsap-reveal" id="bim-data">
+                <h2>2. Handling of Proprietary BIM Data</h2>
+                <div class="bg-blue-500/10 border border-blue-500/30 rounded-lg p-5 my-6">
+                    <p class="text-[#38bdf8] font-medium m-0 flex items-start gap-3">
+                        <svg class="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                        <span><strong>Zero-Knowledge Architecture:</strong> Datum Sync acts strictly as a transit layer. We do not permanently store, claim ownership of, or train AI models on your proprietary Revit geometries, floor plans, or project metadata.</span>
+                    </p>
+                </div>
+                <p>
+                    When utilizing our cloud synchronization engine, parameter delta updates are encrypted end-to-end. Cached packets are automatically purged from our servers within 24 hours of successful transmission to your central model.
+                </p>
+            </div>
+
+            <div class="gsap-reveal" id="data-usage">
+                <h2>3. How We Use Your Information</h2>
+                <p>We use the collected administrative and telemetry data exclusively to:</p>
+                <ul>
+                    <li>Authenticate your API keys and manage software licensing.</li>
+                    <li>Provide customer support and technical troubleshooting.</li>
+                    <li>Monitor server health and optimize synchronization speeds across global nodes.</li>
+                    <li>Comply with legal obligations and prevent fraudulent account access.</li>
+                </ul>
+            </div>
+
+            <div class="gsap-reveal" id="security">
+                <h2>4. Security Standards & Compliance</h2>
+                <p>
+                    Datum Sync is built on enterprise-grade infrastructure. All data in transit is secured using <strong>TLS 1.3 encryption</strong>, and data at rest is secured via <strong>AES-256</strong>. 
+                </p>
+                <p>
+                    We undergo annual third-party penetration testing and maintain SOC2 Type II compliance. For enterprise customers utilizing our On-Premise deployment tier, no data leaves your internal corporate firewall.
+                </p>
+            </div>
+
+            <div class="gsap-reveal" id="contact">
+                <h2>5. Contact Information</h2>
+                <p>
+                    If you have questions about this Privacy Policy or wish to exercise your data rights (including GDPR and CCPA requests), please contact our Data Protection Officer at:
+                </p>
+                <p class="font-mono text-[#38bdf8]">privacy@datumsync.com</p>
+            </div>
+
+        </main>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            if (typeof gsap !== "undefined") {
+                gsap.to(".gsap-reveal", {
+                    autoAlpha: 1,
+                    y: 0,
+                    duration: 0.6,
+                    stagger: 0.1,
+                    ease: "power2.out",
+                    delay: 0.1
+                });
+            } else {
+                document.querySelectorAll('.gsap-reveal').forEach(el => {
+                    el.style.visibility = 'visible';
+                    el.style.opacity = '1';
+                    el.style.transform = 'none';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
