@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth bg-[#050505]">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Datum Sync</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #ffffff;
+            overflow-x: hidden;
+            margin: 0;
+        }
+
+        .premium-glass {
+            background: rgba(10, 10, 12, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* Premium Form Input Styling */
+        .premium-input {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            transition: all 0.3s ease;
+        }
+
+        .premium-input:focus {
+            outline: none;
+            border-color: #38bdf8;
+            background: rgba(56, 189, 248, 0.05);
+            box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.1);
+        }
+
+        .premium-input::placeholder {
+            color: #64748b;
+        }
+
+        /* Office Card Hover Effect */
+        .office-card {
+            border-left: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        .office-card:hover {
+            border-left-color: #38bdf8;
+            background: rgba(255, 255, 255, 0.02);
+            padding-left: 1rem;
+        }
+
+        .gsap-reveal {
+            visibility: hidden;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-[#38bdf8] selection:text-white flex flex-col min-h-screen pb-20">
+
+    <nav class="fixed w-full z-50 top-0 premium-glass" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="font-bold text-xl tracking-widest text-white flex items-center gap-2 hover:opacity-80 transition-opacity">
+                <div class="w-4 h-4 rounded-full bg-gradient-to-r from-blue-400 to-indigo-500"></div>
+                DATUM.SYNC
+            </a>
+            <div class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="features.html" class="text-gray-400 hover:text-white transition-colors">The Engine</a>
+                <a href="pricing.html" class="text-gray-400 hover:text-white transition-colors">Pricing</a>
+                <a href="documentation.html" class="text-gray-400 hover:text-white transition-colors">Docs</a>
+            </div>
+            <a href="download.html" class="bg-white text-black px-6 py-2.5 rounded-full text-sm font-semibold hover:scale-105 transition-transform duration-300">
+                Download
+            </a>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-6 pt-40 w-full flex-grow">
+        
+        <div class="mb-16">
+            <h1 class="gsap-reveal text-4xl md:text-6xl font-extrabold tracking-tight mb-4">Get in touch.</h1>
+            <p class="gsap-reveal text-lg text-gray-400 max-w-2xl">Whether you are deploying Datum Sync across a global firm or need help debugging a Revit API hook, our team is ready to assist.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            
+            <div class="lg:col-span-7 gsap-reveal bg-[#0a0d14] border border-gray-800 rounded-2xl p-8 md:p-10 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 rounded-full blur-[80px] pointer-events-none"></div>
+                
+                <form class="space-y-6 relative z-10" onsubmit="event.preventDefault();">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">First Name</label>
+                            <input type="text" placeholder="Jane" class="premium-input w-full rounded-lg px-4 py-3 text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Last Name</label>
+                            <input type="text" placeholder="Doe" class="premium-input w-full rounded-lg px-4 py-3 text-sm">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Work Email</label>
+                        <input type="email" placeholder="jane@architecture-firm.com" class="premium-input w-full rounded-lg px-4 py-3 text-sm">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">How can we help?</label>
+                        <div class="relative">
+                            <select class="premium-input w-full rounded-lg px-4 py-3 text-sm appearance-none cursor-pointer">
+                                <option value="sales">Enterprise Sales & Pricing</option>
+                                <option value="support">Technical Support</option>
+                                <option value="partnership">API Partnerships</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-400">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Message</label>
+                        <textarea rows="4" placeholder="Tell us about your Revit setup or deployment scale..." class="premium-input w-full rounded-lg px-4 py-3 text-sm resize-none"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-[#e2e8f0] text-[#050505] font-bold py-4 rounded-lg mt-4 hover:bg-white hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all duration-300 flex justify-center items-center gap-2">
+                        Send Message
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </button>
+                </form>
+            </div>
+
+            <div class="lg:col-span-5 space-y-12 pt-4">
+                
+                <div class="gsap-reveal">
+                    <h3 class="text-xl font-bold text-white mb-6">Direct Routing</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-blue-500/10 border border-blue-500/30 flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg class="w-5 h-5 text-[#38bdf8]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-white mb-1">Sales & Enterprise</h4>
+                                <a href="mailto:sales@datumsync.com" class="text-sm text-gray-400 hover:text-[#38bdf8] transition-colors">sales@datumsync.com</a>
+                                <p class="text-xs text-gray-500 mt-1">Typical response time: &lt; 2 hours</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg class="w-5 h-5 text-[#818cf8]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-bold text-white mb-1">Developer Support</h4>
+                                <a href="mailto:support@datumsync.com" class="text-sm text-gray-400 hover:text-[#818cf8] transition-colors">support@datumsync.com</a>
+                                <p class="text-xs text-gray-500 mt-1">Available 24/5 for Pro & Enterprise tiers</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="border-gray-800">
+
+                <div class="gsap-reveal">
+                    <h3 class="text-xl font-bold text-white mb-6">Global Infrastructure</h3>
+                    <div class="space-y-2">
+                        
+                        <div class="office-card py-2 -ml-2 pl-2 cursor-default">
+                            <h4 class="text-sm font-bold text-white flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-green-500"></span> San Francisco, CA
+                            </h4>
+                            <p class="text-sm text-gray-400 mt-1">Global Headquarters & Core Engineering</p>
+                        </div>
+
+                        <div class="office-card py-2 -ml-2 pl-2 cursor-default">
+                            <h4 class="text-sm font-bold text-white flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-green-500"></span> London, UK
+                            </h4>
+                            <p class="text-sm text-gray-400 mt-1">EMEA Sales & Infrastructure</p>
+                        </div>
+
+                        <div class="office-card py-2 -ml-2 pl-2 cursor-default">
+                            <h4 class="text-sm font-bold text-white flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-green-500"></span> Gurugram, India
+                            </h4>
+                            <p class="text-sm text-gray-400 mt-1">APAC Support & API Integrations</p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            if (typeof gsap !== "undefined") {
+                gsap.to(".gsap-reveal", {
+                    autoAlpha: 1,
+                    y: 0,
+                    duration: 0.6,
+                    stagger: 0.1,
+                    ease: "power2.out",
+                    delay: 0.1
+                });
+            } else {
+                document.querySelectorAll('.gsap-reveal').forEach(el => {
+                    el.style.visibility = 'visible';
+                    el.style.opacity = '1';
+                    el.style.transform = 'none';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
